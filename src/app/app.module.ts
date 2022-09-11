@@ -9,6 +9,13 @@ import { IErrorAlertsService } from './services/error-alerts/error-alerts.servic
 import { ErrorAlertsService } from './services/error-alerts/error-alerts.service';
 import { HomeComponent } from './features/home/home.component';
 import { NotFoundComponent } from './features/not-found/not-found.component';
+import { ArtistBackgroundComponent } from './features/artist-background/artist-background.component';
+import { InspirationComponent } from './features/inspiration/inspiration.component';
+import { PortfolioDrawingAndPaintingComponent } from './features/portfolio-drawing-and-painting/portfolio-drawing-and-painting.component';
+import { PortfolioPhotographyComponent } from './features/portfolio-photography/portfolio-photography.component';
+import { PortfolioPrintmakingComponent } from './features/portfolio-printmaking/portfolio-printmaking.component';
+import { PortfolioSculptureComponent } from './features/portfolio-sculpture/portfolio-sculpture.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +23,14 @@ import { NotFoundComponent } from './features/not-found/not-found.component';
     NavbarComponent,
     ErrorAlertsComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ArtistBackgroundComponent,
+    InspirationComponent,
+    PortfolioDrawingAndPaintingComponent,
+    PortfolioPhotographyComponent,
+    PortfolioPrintmakingComponent,
+    PortfolioSculptureComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,63 @@
-<nav class="navbar navbar-light sticky-top bg-light">
-    <div class="container-xxl">
-        <a class="navbar-brand" href="#">
-            <img src="https://raw.githubusercontent.com/seanmcnamee/photos/main/seanlogo-dark.png" alt="Icon" width="30"
-                height="30">
-            CassandraTuretsky
-        </a>
+<nav class="navbar navbar-light navbar-expand-lg sticky-top bg-primary shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/Home">
+      <!-- <img src="https://raw.githubusercontent.com/seanmcnamee/photos/main/seanlogo-dark.png" alt="Icon" width="30"
+                height="30"> -->
+      CassandraTuretsky
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <div class="nav-item">
+          <a class="nav-link {{navLinkBaseClasses}} {{navLinkHoverClasses}}" routerLink="/Home"
+            routerLinkActive="{{navLinkActiveClasses}}" [routerLinkActiveOptions]="{exact: true}">
+            Home</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link {{navLinkBaseClasses}} {{navLinkHoverClasses}}" routerLink="/ArtistBackground"
+            routerLinkActive="{{navLinkActiveClasses}}" [routerLinkActiveOptions]="{exact: true}">
+            Artist Background</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link {{navLinkBaseClasses}} {{navLinkHoverClasses}}" routerLink="/Inspiration"
+            routerLinkActive="{{navLinkActiveClasses}}" [routerLinkActiveOptions]="{exact: true}">
+            Inspiration</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link {{navLinkBaseClasses}} {{navLinkHoverClasses}}" routerLink="/Drawing-Painting"
+            routerLinkActive="{{navLinkActiveClasses}}" [routerLinkActiveOptions]="{exact: true}">
+            Drawing & Painting Portfolio</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link {{navLinkBaseClasses}} {{navLinkHoverClasses}}" routerLink="/Photography"
+            routerLinkActive="{{navLinkActiveClasses}}" [routerLinkActiveOptions]="{exact: true}">
+            Photography Portfolio</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link {{navLinkBaseClasses}} {{navLinkHoverClasses}}" routerLink="/Printmaking"
+            routerLinkActive="{{navLinkActiveClasses}}" [routerLinkActiveOptions]="{exact: true}">
+            Printmaking Portfolio</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link {{navLinkBaseClasses}} {{navLinkHoverClasses}}" routerLink="/Sculpture"
+            routerLinkActive="{{navLinkActiveClasses}}" [routerLinkActiveOptions]="{exact: true}">
+            Sculpture Portfolio</a>
+        </div>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
 </nav>
