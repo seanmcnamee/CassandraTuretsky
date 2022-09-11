@@ -1,5 +1,5 @@
 {
-  "name": "angular-bootstrap-template",
+  "name": "cassandra-turetsky",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -13,7 +13,7 @@
     "cypress:run": "cypress run",
     "test:ci": "npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run",
-    "deploy": "ng deploy --base-href=/AngularBootstrapTemplate/ --name='GH Actions Deployment' --email=seanmcnamee.45@gmail.com"
+    "deploy": "ng deploy --base-href=/CassandraTuretsky/ --name='GH Actions Deployment' --email=seanmcnamee.45@gmail.com"
   },
   "private": true,
   "dependencies": {
