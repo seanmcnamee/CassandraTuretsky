@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, UrlSegment } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -15,9 +15,7 @@ export class NavbarComponent implements OnInit {
   navLinkHoverClasses: string = "bg-secondary-hover";
   navLinkActiveClasses: string = "border border-2 border-dark fw-bold";
 
-  constructor(private router: Router) { 
-    console.log("constructed");
-  }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.sub = this.router.events.subscribe((e) => {

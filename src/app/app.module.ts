@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { ErrorAlertsComponent } from './components/error-alerts/error-alerts.component';
 import { IErrorAlertsService } from './services/error-alerts/error-alerts.service.interface';
 import { ErrorAlertsService } from './services/error-alerts/error-alerts.service';
@@ -15,7 +16,6 @@ import { PortfolioDrawingAndPaintingComponent } from './features/portfolio-drawi
 import { PortfolioPhotographyComponent } from './features/portfolio-photography/portfolio-photography.component';
 import { PortfolioPrintmakingComponent } from './features/portfolio-printmaking/portfolio-printmaking.component';
 import { PortfolioSculptureComponent } from './features/portfolio-sculpture/portfolio-sculpture.component';
-import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { ContactComponent } from './components/contact/contact.component';
     PortfolioPhotographyComponent,
     PortfolioPrintmakingComponent,
     PortfolioSculptureComponent,
-    ContactComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
