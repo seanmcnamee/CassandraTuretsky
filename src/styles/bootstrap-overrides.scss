@@ -13,7 +13,10 @@ $utilities: map-merge(
   $utilities, (
     "background-color": map-merge(
       map-get($utilities, "background-color"),
-      ( state: hover ),
+      ( 
+        responsive: true,
+        state: hover
+      ),
     ),
   )
 );

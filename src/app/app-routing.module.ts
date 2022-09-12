@@ -15,10 +15,12 @@ const routes: Routes = [
   { path: "Home", component: HomeComponent },
   { path: "ArtistBackground", component: ArtistBackgroundComponent },
   { path: "Inspiration", component: InspirationComponent },
-  { path: "Drawing-Painting", component: PortfolioDrawingAndPaintingComponent },
-  { path: "Photography", component: PortfolioPhotographyComponent },
-  { path: "Printmaking", component: PortfolioPrintmakingComponent },
-  { path: "Sculpture", component: PortfolioSculptureComponent },
+
+  { path: "Portfolio/Drawing-Painting", component: PortfolioDrawingAndPaintingComponent },
+  { path: "Portfolio/Photography", component: PortfolioPhotographyComponent },
+  { path: "Portfolio/Printmaking", component: PortfolioPrintmakingComponent },
+  { path: "Portfolio/Sculpture", component: PortfolioSculptureComponent },
+
   { path: "404", component: NotFoundComponent },
   
   { path: "**", redirectTo: '/404', pathMatch: 'full' },
