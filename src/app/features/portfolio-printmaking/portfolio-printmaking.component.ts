@@ -5,11 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './portfolio-printmaking.component.html',
   styleUrls: ['./portfolio-printmaking.component.scss']
 })
-export class PortfolioPrintmakingComponent implements OnInit {
+export class PortfolioPrintmakingComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

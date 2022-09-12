@@ -5,11 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './portfolio-drawing-and-painting.component.html',
   styleUrls: ['./portfolio-drawing-and-painting.component.scss']
 })
-export class PortfolioDrawingAndPaintingComponent implements OnInit {
+export class PortfolioDrawingAndPaintingComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

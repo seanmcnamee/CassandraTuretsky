@@ -5,11 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './inspiration.component.html',
   styleUrls: ['./inspiration.component.scss']
 })
-export class InspirationComponent implements OnInit {
+export class InspirationComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

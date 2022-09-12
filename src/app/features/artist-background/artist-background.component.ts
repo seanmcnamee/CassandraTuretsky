@@ -5,11 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './artist-background.component.html',
   styleUrls: ['./artist-background.component.scss']
 })
-export class ArtistBackgroundComponent implements OnInit {
+export class ArtistBackgroundComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
