@@ -18,6 +18,27 @@ $utilities: map-merge(
         state: hover
       ),
     ),
+    "color": map-merge(
+      map-get($utilities, "color"),
+      ( 
+        state: hover
+      ),
+    ),
+    "max-height": map-merge(
+      map-get($utilities, "max-height"),
+      ( 
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "max-height"), "values"),
+          (
+            200x: 200px,
+            300x: 300px,
+            400x: 400px,
+            500x: 500px,
+            ),
+        ),
+      ),
+    ),
   )
 );
 //
