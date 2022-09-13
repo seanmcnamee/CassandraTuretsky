@@ -8,6 +8,12 @@
 }
 
 h1, .h1 {
-    font-size: 7rem;
+    font-size: 4rem;
     text-shadow: 5px 6px 15px #333;
+}
+
+@media (min-width: 992px) {
+    h1, .h1 {
+        font-size: 6.5rem;
+    }
 }
