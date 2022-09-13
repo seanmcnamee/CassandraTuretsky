@@ -10,9 +10,9 @@ import { Subscription } from 'rxjs';
 export class NavbarComponent implements OnInit, OnDestroy {
   private sub!: Subscription;
   isPortfolio: boolean = false;
-  navItemBaseClasses: string = "px-2 px-lg-1 bg-white bg-lg-primary";
-  navLinkBaseClasses: string = "bg-white text-dark px-3 px-lg-2";
-  navLinkHoverClasses: string = "bg-secondary-hover";
+  navItemBaseClasses: string = "px-2 px-lg-1 bg-secondary bg-lg-primary";
+  navLinkBaseClasses: string = "bg-secondary bg-lg-white text-dark px-3 px-lg-2";
+  navLinkHoverClasses: string = "bg-primary-hover bg-lg-secondary-hover";
   navLinkActiveClasses: string = "border border-2 border-dark fw-bold";
 
   constructor(private router: Router) { }
