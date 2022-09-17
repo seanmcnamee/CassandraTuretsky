@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ErrorAlertItem, IErrorAlertsService } from './error-alerts.service.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ErrorAlertsService implements IErrorAlertsService {
   errorItems: ErrorAlertItem[] = [];
   errorItemsChanged: Subject<ErrorAlertItem[]> = new Subject<ErrorAlertItem[]>();
