@@ -1,1 +1,26 @@
-<p>portfolio-printmaking works!</p>
+<div class="row pt-2 mx-0 g-2 pb-2">
+    <div class="col-12">
+        <h3><span class="fa-solid fa-stamp pe-2"></span>Printmaking Portfolio</h3>
+        <hr class="mb-0">
+    
+        <div class="row mx-0 mb-2 justify-content-between">
+            <div class="col-12 col-md-auto">
+                <div class="row mx-0 gx-1">
+                    <div class="col-auto pe-2">
+                        Tags:
+                    </div>
+                    <div class="col-auto" *ngFor="let tag of enabledTags">
+                        <div class="btn btn-secondary py-0">{{tag.displayName}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-auto">
+                Showing <strong>{{filteredImages.length}}</strong> of <strong>{{images.length}}</strong> results
+            </div>
+        </div>
+    </div>
+
+    <div class="col-auto align-self-center text-center" *ngFor="let image of filteredImages">
+        <img src="{{ image.url }}" class="img-fluid mw-100 mw-sm-200x">
+    </div>    
+</div>

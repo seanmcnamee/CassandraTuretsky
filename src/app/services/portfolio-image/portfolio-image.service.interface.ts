@@ -1,5 +1,7 @@
 export abstract class IPortfolioImageService {
-  public abstract getImages(): PortfolioImage[];
+  public abstract getImages(...categories: ImageCategory[]): PortfolioImage[];
+  public abstract getCategoriesFrom(images: PortfolioImage[]): ImageCategory[];
+  public abstract getTagsFrom(images: PortfolioImage[]): ImageTag[];
 }
 
 export class PortfolioImage {
@@ -8,13 +10,13 @@ export class PortfolioImage {
 
   id: string;
   category: ImageCategory;
-  imageUrl: string;
+  url: string;
   tags: ImageTag[];
   
-  public constructor(category: ImageCategory, imageUrl: string, tags?: ImageTag[]){
+  public constructor(category: ImageCategory, url: string, tags?: ImageTag[]){
     this.id = String(PortfolioImage.idNum++);
     this.category = category;
-    this.imageUrl = imageUrl;
+    this.url = url;
     this.tags = tags ?? [];
   }
 }
@@ -28,5 +30,14 @@ export enum ImageCategory {
 }
 
 export enum ImageTag {
+  //Subject
+  BeatGeneration,
+  MentalHealth,
+  Person,
+
+  //Materials
+  Cloth,
+  Paper,
+
 
 }

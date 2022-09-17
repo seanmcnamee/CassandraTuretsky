@@ -16,6 +16,8 @@ import { PortfolioDrawingAndPaintingComponent } from './features/portfolio-drawi
 import { PortfolioPhotographyComponent } from './features/portfolio-photography/portfolio-photography.component';
 import { PortfolioPrintmakingComponent } from './features/portfolio-printmaking/portfolio-printmaking.component';
 import { PortfolioSculptureComponent } from './features/portfolio-sculpture/portfolio-sculpture.component';
+import { PortfolioImageService } from './services/portfolio-image/portfolio-image.service';
+import { IPortfolioImageService } from './services/portfolio-image/portfolio-image.service.interface';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { PortfolioSculptureComponent } from './features/portfolio-sculpture/port
   ],
   providers: [
     {provide: IErrorAlertsService, useClass: ErrorAlertsService},
+    {provide: IPortfolioImageService, useClass: PortfolioImageService},
   ],
   bootstrap: [AppComponent]
 })

@@ -39,6 +39,21 @@ $utilities: map-merge(
         ),
       ),
     ),
+    "max-width": map-merge(
+      map-get($utilities, "max-width"),
+      ( 
+        responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "max-width"), "values"),
+          (
+            200x: 200px,
+            300x: 300px,
+            400x: 400px,
+            500x: 500px,
+            ),
+        ),
+      ),
+    ),
   )
 );
 //
