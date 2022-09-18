@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { ImageCategory, ImageTag, IPortfolioImageService, PortfolioImage } from 'src/app/services/portfolio-image/portfolio-image.service.interface';
 
@@ -8,33 +8,45 @@ import { ImageCategory, ImageTag, IPortfolioImageService, PortfolioImage } from 
   styleUrls: ['./portfolio-printmaking.component.scss']
 })
 export class PortfolioPrintmakingComponent {
+  @ViewChild('tagFiltersDropdownBtn') search!: ElementRef;
   ImageTag: typeof ImageTag = ImageTag;
   images: PortfolioImage[];
 
   tags: Map<DisplayImageTag, boolean>;
-  enabledTags: DisplayImageTag[];
 
+  enabledTags!: DisplayImageTag[];
   filteredImages!: PortfolioImage[];
 
   constructor(portfolioImageService: IPortfolioImageService) { 
     this.images = portfolioImageService.getImages(ImageCategory.Printmaking);
     var allTags = portfolioImageService.getTagsFrom(this.images).map(tag => new DisplayImageTag(tag));
     this.tags = new Map(allTags.map(tag => [tag, true]));
-    this.enabledTags = Array.from(this.tags.keys()).filter((tag) => this.tags.get(tag) === true);
+    this.updateResultsFromFilters();
+  }
 
+  updateAllTagFilters(isEnabled: boolean) {
+    this.tags.forEach((_, key, map) => map.set(key, isEnabled));
     this.updateResultsFromFilters();
   }
 
   updateTagFilter(tag: DisplayImageTag, isEnabled: boolean) {
     this.tags.set(tag, isEnabled);
-    this.enabledTags = Array.from(this.tags.keys()).filter((tag) => this.tags.get(tag) === true);
-
     this.updateResultsFromFilters();
   }
 
+  private getTagsWithStatus(tags: Map<DisplayImageTag, boolean>, isEnabled: boolean = true): DisplayImageTag[] {
+    return Array.from(this.tags.keys()).filter((tag) => this.tags.get(tag) === isEnabled);
+  }
+
   updateResultsFromFilters() {
+    this.enabledTags = this.getTagsWithStatus(this.tags, true);
     this.filteredImages = this.images.filter(image => this.enabledTags.some(tag => image.tags.includes(tag.tag)))
     return this.filteredImages;
+  }
+
+  openDropDown(e: MouseEvent) {
+    e.stopPropagation();
+    this.search.nativeElement.click();
   }
 }
 

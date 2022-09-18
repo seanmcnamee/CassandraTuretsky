@@ -30,7 +30,7 @@ export enum ImageCategory {
 }
 
 export enum ImageTag {
-  //Subject
+  //PrintMaking Tags
   SilkScreen,
   Linocut,
   Intaglio,
