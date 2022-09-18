@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ImageCategory, ImageTag, IPortfolioImageService, PortfolioImage } from 'src/app/services/portfolio-image/portfolio-image.service.interface';
 
 @Component({
@@ -8,31 +8,28 @@ import { ImageCategory, ImageTag, IPortfolioImageService, PortfolioImage } from 
   styleUrls: ['./portfolio-printmaking.component.scss']
 })
 export class PortfolioPrintmakingComponent {
+  ImageTag: typeof ImageTag = ImageTag;
   images: PortfolioImage[];
 
-  tags: DisplayImageTag[];
+  tags: Map<DisplayImageTag, boolean>;
   enabledTags: DisplayImageTag[];
-  disabledTags: DisplayImageTag[];
 
-  filteredImages: PortfolioImage[];
+  filteredImages!: PortfolioImage[];
 
   constructor(portfolioImageService: IPortfolioImageService) { 
-    this.filteredImages = this.images = portfolioImageService.getImages(ImageCategory.Printmaking);
-    this.tags = portfolioImageService.getTagsFrom(this.images).map(tag => new DisplayImageTag(tag));
-    console.log("Tags: ", this.tags);
-    this.enabledTags = this.tags;
-    this.disabledTags = [];
+    this.images = portfolioImageService.getImages(ImageCategory.Printmaking);
+    var allTags = portfolioImageService.getTagsFrom(this.images).map(tag => new DisplayImageTag(tag));
+    this.tags = new Map(allTags.map(tag => [tag, true]));
+    this.enabledTags = Array.from(this.tags.keys()).filter((tag) => this.tags.get(tag) === true);
 
-    console.log("Enabled tags: ", this.enabledTags);
-    console.log("Disabled tags: ", this.disabledTags);
+    this.updateResultsFromFilters();
   }
 
   updateTagFilter(tag: DisplayImageTag, isEnabled: boolean) {
-    var filterToAppend = isEnabled ? this.enabledTags : this.disabledTags;
-    var filterToRemove = !isEnabled ? this.enabledTags : this.disabledTags;
+    this.tags.set(tag, isEnabled);
+    this.enabledTags = Array.from(this.tags.keys()).filter((tag) => this.tags.get(tag) === true);
 
-    filterToAppend.push(tag);
-    filterToRemove.splice(filterToRemove.indexOf(tag), 1);
+    this.updateResultsFromFilters();
   }
 
   updateResultsFromFilters() {

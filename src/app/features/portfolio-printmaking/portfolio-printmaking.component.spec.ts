@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PortfolioImageService } from 'src/app/services/portfolio-image/portfolio-image.service';
+import { IPortfolioImageService } from 'src/app/services/portfolio-image/portfolio-image.service.interface';
 
 import { PortfolioPrintmakingComponent } from './portfolio-printmaking.component';
 
@@ -8,7 +10,8 @@ describe('PortfolioPrintmakingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PortfolioPrintmakingComponent ]
+      declarations: [ PortfolioPrintmakingComponent ],
+      providers: [{ provide: IPortfolioImageService, useClass: PortfolioImageService }],
     })
     .compileComponents();
 

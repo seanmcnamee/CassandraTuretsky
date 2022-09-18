@@ -5,6 +5,14 @@ $secondary: #8E8E8E;
 @import "node_modules/bootstrap/scss/_functions";
 @import "node_modules/bootstrap/scss/_variables";
 @import "node_modules/bootstrap/scss/_maps";
+
+$font-sizes: map-merge(
+  $font-sizes,
+  (
+  small: "small"
+  )
+);
+
 @import "node_modules/bootstrap/scss/_mixins";
 @import "node_modules/bootstrap/scss/_utilities";
 

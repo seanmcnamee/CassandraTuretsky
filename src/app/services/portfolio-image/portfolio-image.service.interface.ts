@@ -17,7 +17,7 @@ export class PortfolioImage {
     this.id = String(PortfolioImage.idNum++);
     this.category = category;
     this.url = url;
-    this.tags = tags ?? [];
+    this.tags = tags ?? [ImageTag.None];
   }
 }
 
@@ -31,13 +31,9 @@ export enum ImageCategory {
 
 export enum ImageTag {
   //Subject
-  BeatGeneration,
-  MentalHealth,
-  Person,
+  SilkScreen,
+  Linocut,
+  Intaglio,
 
-  //Materials
-  Cloth,
-  Paper,
-
-
+  None
 }

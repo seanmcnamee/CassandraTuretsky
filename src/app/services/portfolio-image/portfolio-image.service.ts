@@ -19,12 +19,16 @@ export class PortfolioImageService implements IPortfolioImageService {
   }
 
   public getTagsFrom(images: PortfolioImage[]): ImageTag[] {
-    console.log("PortfolioImageService.getTagsFrom(images: ", images);
-
     var imagesAsTagArrays = images.map(image => image.tags);
     var imagesAsFlattenedTags = Array.prototype.concat.apply([], imagesAsTagArrays) as ImageTag[];
     var uniqueTags = Array.from(new Set(imagesAsFlattenedTags));
-    var sortedTags = uniqueTags.sort((a, b) => ImageTag[a].localeCompare(ImageTag[b]))
+    var sortedTags = uniqueTags.sort((a, b) => ImageTag[a].localeCompare(ImageTag[b]));
+
+    //ImageTag.None should be the last option
+    if (sortedTags.includes(ImageTag.None)) {
+      sortedTags.splice(sortedTags.indexOf(ImageTag.None), 1);
+      sortedTags.push(ImageTag.None);
+    }
     return sortedTags;
   }
 
@@ -50,20 +54,20 @@ export class PortfolioImageService implements IPortfolioImageService {
       new PortfolioImage(ImageCategory.Photography, ""),
 
       //Printmaking
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/BeatGeneration-Collage-1.jpeg", [ImageTag.BeatGeneration]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/BeatGeneration-Collage-2.jpeg", [ImageTag.BeatGeneration]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/BeatGeneration-Red.jpeg", [ImageTag.BeatGeneration]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/StoryBoard.jpeg"),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/121.jpeg"),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Bodies-Sewn-Collage.jpeg", [ImageTag.Person]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Cassie-Stomach.jpeg", [ImageTag.Person]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Sean-Neck.jpeg", [ImageTag.Person]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Sean-Knees.jpeg", [ImageTag.Person]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Sean-Eating.jpeg", [ImageTag.Person]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/ClothesLine-Closeup-1.jpeg", [ImageTag.Cloth]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/ClothesLine-WithStream-1.jpeg", [ImageTag.Cloth]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/ClothesLine-Closeup-2.jpeg", [ImageTag.Cloth]),
-      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/ClothesLine-WithStream-2.jpeg", [ImageTag.Cloth]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/BeatGeneration-Collage-1.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/BeatGeneration-Collage-2.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/BeatGeneration-Red.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/StoryBoard.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/121.jpeg", [ImageTag.Intaglio]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Bodies-Sewn-Collage.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Cassie-Stomach.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Sean-Neck.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Sean-Knees.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/Sean-Eating.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/ClothesLine-Closeup-1.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/ClothesLine-WithStream-1.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/ClothesLine-Closeup-2.jpeg", [ImageTag.SilkScreen]),
+      new PortfolioImage(ImageCategory.Printmaking, "/assets/portfolio/printmaking/ClothesLine-WithStream-2.jpeg", [ImageTag.SilkScreen]),
 
       //Sculpture
       new PortfolioImage(ImageCategory.Sculpture, ""),
