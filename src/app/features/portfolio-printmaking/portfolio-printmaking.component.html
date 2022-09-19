@@ -57,7 +57,7 @@
 
 <div class="row mx-0 g-2 pb-2 justify-content-center">
     <div class="col-auto align-self-center text-center" *ngFor="let image of filteredImages">
-        <img src="{{ image.url }}" class="img-fluid mw-100 mw-sm-200x">
+        <img src="{{ image.url }}" class="img-fluid mw-100 mw-sm-200x" data-bs-toggle="modal" data-bs-target="#ImageModal" (click)="setModalImg(image)" title="Open in fullscreen">
     </div>
     <div class="col-auto" *ngIf="filteredImages.length === 0 && tags.size > enabledTags.length">
         <button class="btn btn-light" (click)="openDropDown($event)">
@@ -65,3 +65,25 @@
         </button>
     </div>
 </div>
+
+
+<div class="modal fade" id="ImageModal" tabindex="-1" aria-label="Image Modal" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body row mx-0 justify-content-center">
+            <img id="ImageModalImg" #ImageModalImg class="img-fluid align-self-center">
+        </div>
+        <!-- <div class="modal-footer row mx-0 justify-content-between">
+            <div class="col-auto px-0">
+                <button type="button" class="btn btn-secondary">Previous</button>
+            </div>
+            <div class="col-auto px-0">
+                <button type="button" class="btn btn-secondary">Next</button>
+            </div>
+        </div> -->
+      </div>
+    </div>
+  </div>

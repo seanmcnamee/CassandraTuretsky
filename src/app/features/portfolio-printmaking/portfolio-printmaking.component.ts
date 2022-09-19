@@ -8,7 +8,8 @@ import { ImageCategory, ImageTag, IPortfolioImageService, PortfolioImage } from 
   styleUrls: ['./portfolio-printmaking.component.scss']
 })
 export class PortfolioPrintmakingComponent {
-  @ViewChild('tagFiltersDropdownBtn') search!: ElementRef;
+  @ViewChild('tagFiltersDropdownBtn') filterDropdownBtn!: ElementRef;
+  @ViewChild('ImageModalImg') modalImg!: ElementRef;
   ImageTag: typeof ImageTag = ImageTag;
   images: PortfolioImage[];
 
@@ -38,15 +39,18 @@ export class PortfolioPrintmakingComponent {
     return Array.from(this.tags.keys()).filter((tag) => this.tags.get(tag) === isEnabled);
   }
 
-  updateResultsFromFilters() {
+  updateResultsFromFilters(): void {
     this.enabledTags = this.getTagsWithStatus(this.tags, true);
-    this.filteredImages = this.images.filter(image => this.enabledTags.some(tag => image.tags.includes(tag.tag)))
-    return this.filteredImages;
+    this.filteredImages = this.images.filter(image => this.enabledTags.some(tag => image.tags.includes(tag.tag)));
   }
 
-  openDropDown(e: MouseEvent) {
+  openDropDown(e: MouseEvent): void {
     e.stopPropagation();
-    this.search.nativeElement.click();
+    this.filterDropdownBtn.nativeElement.click();
+  }
+
+  setModalImg(image: PortfolioImage): void {
+    this.modalImg.nativeElement.src = image.url;
   }
 }
 
