@@ -17,5 +17,5 @@
     [filteredImages]="filteredImages"
     [filterHintEventSubject]="filterHintEventSubject"
     [tagsUpdatedEvent]="tagsUpdatedEventSubject.asObservable()"
-    (onFilteredImagesUpdated)="updateFilteredResults($event)">
+    (filteredImagesUpdatedEvent)="updateFilteredResults($event)">
 </app-portfolio-results>

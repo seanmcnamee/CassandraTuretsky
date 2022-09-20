@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { ImageTag, PortfolioImage } from 'src/app/services/portfolio-image/portfolio-image.service.interface';
 
@@ -7,12 +7,12 @@ import { ImageTag, PortfolioImage } from 'src/app/services/portfolio-image/portf
   templateUrl: './portfolio-results.component.html',
   styleUrls: ['./portfolio-results.component.scss']
 })
-export class PortfolioResultsComponent implements OnInit {
+export class PortfolioResultsComponent implements OnInit, OnDestroy {
   @Input() images?: PortfolioImage[];
   @Input() filteredImages?: PortfolioImage[];
   @Input() filterHintEventSubject?: Subject<void>;
   @Input() tagsUpdatedEvent?: Observable<ImageTag[]>;
-  @Output() onFilteredImagesUpdated: EventEmitter<PortfolioImage[]> = new EventEmitter();
+  @Output() filteredImagesUpdatedEvent: EventEmitter<PortfolioImage[]> = new EventEmitter();
 
   @ViewChild('ImageModalImg') modalImg!: ElementRef;
 
@@ -39,6 +39,6 @@ export class PortfolioResultsComponent implements OnInit {
 
   private updateFilterResults(tagFilters: ImageTag[]): void {
     var filteredImages = this.images?.filter(image => tagFilters.some(tag => image.tags.includes(tag)));
-    this.onFilteredImagesUpdated.emit(filteredImages);
+    this.filteredImagesUpdatedEvent.emit(filteredImages);
   }
 }

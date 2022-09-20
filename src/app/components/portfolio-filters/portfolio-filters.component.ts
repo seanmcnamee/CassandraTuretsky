@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { ImageTag, IPortfolioImageService, PortfolioImage } from 'src/app/services/portfolio-image/portfolio-image.service.interface';
 
@@ -7,7 +7,7 @@ import { ImageTag, IPortfolioImageService, PortfolioImage } from 'src/app/servic
   templateUrl: './portfolio-filters.component.html',
   styleUrls: ['./portfolio-filters.component.scss']
 })
-export class PortfolioFiltersComponent implements OnInit {
+export class PortfolioFiltersComponent implements OnInit, OnDestroy {
   @Input() images?: PortfolioImage[];
   @Input() filteredImageCount?: number;
   @Input() filterHintEvent?: Observable<void>;
