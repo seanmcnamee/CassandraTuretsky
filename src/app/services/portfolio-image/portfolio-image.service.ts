@@ -11,14 +11,16 @@ export class PortfolioImageService implements IPortfolioImageService {
     return this.portfolioImages.filter(image => categories.includes(image.category));
   }
   
-  public getCategoriesFrom(images: PortfolioImage[]): ImageCategory[] {
-    var imagesAsCategories = images.map(image => image.category);
+  public getCategoriesFrom(images?: PortfolioImage[]): ImageCategory[] {
+    var imagesAsCategories = images?.map(image => image.category);
     var uniqueCategories = Array.from(new Set(imagesAsCategories));
     var sortedCategories = uniqueCategories.sort((a, b) => ImageCategory[a].localeCompare(ImageCategory[b]));
     return sortedCategories;
   }
 
-  public getTagsFrom(images: PortfolioImage[]): ImageTag[] {
+  public getTagsFrom(images?: PortfolioImage[]): ImageTag[] {
+    if (!images) return [];
+
     var imagesAsTagArrays = images.map(image => image.tags);
     var imagesAsFlattenedTags = Array.prototype.concat.apply([], imagesAsTagArrays) as ImageTag[];
     var uniqueTags = Array.from(new Set(imagesAsFlattenedTags));

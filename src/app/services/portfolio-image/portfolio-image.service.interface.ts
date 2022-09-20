@@ -1,7 +1,7 @@
 export abstract class IPortfolioImageService {
   public abstract getImages(...categories: ImageCategory[]): PortfolioImage[];
-  public abstract getCategoriesFrom(images: PortfolioImage[]): ImageCategory[];
-  public abstract getTagsFrom(images: PortfolioImage[]): ImageTag[];
+  public abstract getCategoriesFrom(images?: PortfolioImage[]): ImageCategory[];
+  public abstract getTagsFrom(images?: PortfolioImage[]): ImageTag[];
 }
 
 export class PortfolioImage {

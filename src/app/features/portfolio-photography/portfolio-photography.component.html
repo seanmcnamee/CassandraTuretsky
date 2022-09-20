@@ -1,1 +1,21 @@
-<p>portfolio-photography works!</p>
+<div class="row pt-2 mx-0">
+    <div class="col-12">
+        <h3><span class="fa-solid fa-camera pe-2"></span>Photography Portfolio</h3>
+        <hr>
+    </div>
+</div>
+
+<app-portfolio-filters
+    [images]="images"
+    [filteredImageCount]="filteredImages?.length ?? 0"
+    [filterHintEvent]="filterHintEventSubject.asObservable()"
+    [tagsUpdatedEventSubject]="tagsUpdatedEventSubject">
+</app-portfolio-filters>
+
+<app-portfolio-results
+    [images]="images"
+    [filteredImages]="filteredImages"
+    [filterHintEventSubject]="filterHintEventSubject"
+    [tagsUpdatedEvent]="tagsUpdatedEventSubject.asObservable()"
+    (onFilteredImagesUpdated)="updateFilteredResults($event)">
+</app-portfolio-results>

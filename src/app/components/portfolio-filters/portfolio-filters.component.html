@@ -1,0 +1,48 @@
+<div class="row mx-0 g-4">
+    <div class="col-auto pe-3" *ngIf="(tags?.size ?? 0) > 0">
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle py-0" type="button" #tagFiltersDropdownBtn id="tagFiltersDropdownBtn"
+                data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                Tags
+            </button>
+            <ul class="dropdown-menu bg-light" aria-labelledby="tagFiltersDropdownBtn">
+
+                <li class="dropdown-item" (click)="updateAllTagFilters(tags?.size !== enabledTags?.length)">
+                    <input class="form-check-input" type="checkbox" [checked]="tags?.size === enabledTags?.length">
+                    All
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <ng-container *ngFor="let tagEntry of tags | keyvalue">
+                    <li *ngIf="tagEntry.key.tag === ImageTag.None">
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li class="dropdown-item" (click)="updateTagFilter(tagEntry.key, !tagEntry.value)">
+                        <input class="form-check-input" type="checkbox" [checked]="tagEntry.value">
+                        {{tagEntry.key.displayName}}
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+    <div class="col-auto px-1">
+        <div class="row mx-0 g-2 ps-1">
+            <div class="col-auto align-items-center" *ngFor="let tag of enabledTags">
+                <div class="alert alert-light alert-dismissible py-0 px-1 mb-0 show" role="alert">
+                    {{tag.displayName}}
+                    <button type="button" class="btn-close mx-0 p-0 position-relative fs-small" data-bs-dismiss="alert"
+                        aria-label="Close" (click)="updateTagFilter(tag, false)"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-auto ms-auto">
+        <div>Showing <strong>{{filteredImageCount}}</strong> of <strong>{{images?.length}}</strong> results</div>
+    </div>
+
+    <div class="col-12 mt-3">
+        <hr class="mt-0">
+    </div>
+</div>

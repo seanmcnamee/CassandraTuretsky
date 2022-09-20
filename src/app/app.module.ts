@@ -18,6 +18,8 @@ import { PortfolioPrintmakingComponent } from './features/portfolio-printmaking/
 import { PortfolioSculptureComponent } from './features/portfolio-sculpture/portfolio-sculpture.component';
 import { PortfolioImageService } from './services/portfolio-image/portfolio-image.service';
 import { IPortfolioImageService } from './services/portfolio-image/portfolio-image.service.interface';
+import { PortfolioResultsComponent } from './components/portfolio-results/portfolio-results.component';
+import { PortfolioFiltersComponent } from './components/portfolio-filters/portfolio-filters.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { IPortfolioImageService } from './services/portfolio-image/portfolio-ima
     PortfolioPhotographyComponent,
     PortfolioPrintmakingComponent,
     PortfolioSculptureComponent,
-    FooterComponent
+    FooterComponent,
+    PortfolioFiltersComponent,
+    PortfolioResultsComponent
   ],
   imports: [
     BrowserModule,
