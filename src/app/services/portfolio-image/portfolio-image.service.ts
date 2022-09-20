@@ -38,22 +38,33 @@ export class PortfolioImageService implements IPortfolioImageService {
   instantiateImages(): PortfolioImage[] {
     return [
       //Drawings
-      new PortfolioImage(ImageCategory.Drawing, ""),
-      new PortfolioImage(ImageCategory.Drawing, ""),
-      new PortfolioImage(ImageCategory.Drawing, ""),
-      new PortfolioImage(ImageCategory.Drawing, ""),
+      new PortfolioImage(ImageCategory.Drawing, "assets/portfolio/drawing/cassie-double.jpeg"),
+      new PortfolioImage(ImageCategory.Drawing, "assets/portfolio/drawing/cassie-livingroom.jpeg"),
 
       //Paintings
-      new PortfolioImage(ImageCategory.Painting, ""),
-      new PortfolioImage(ImageCategory.Painting, ""),
-      new PortfolioImage(ImageCategory.Painting, ""),
-      new PortfolioImage(ImageCategory.Painting, ""),
+      new PortfolioImage(ImageCategory.Painting, "assets/portfolio/painting/cassie-bed.jpeg"),
+      new PortfolioImage(ImageCategory.Painting, "assets/portfolio/painting/hands-teapot.jpeg"),
+      new PortfolioImage(ImageCategory.Painting, "assets/portfolio/painting/hands-bed.jpeg"),
+      new PortfolioImage(ImageCategory.Painting, "assets/portfolio/painting/girl-forest.jpeg"),
+      new PortfolioImage(ImageCategory.Painting, "assets/portfolio/painting/face-picked.jpeg"),
+      new PortfolioImage(ImageCategory.Painting, "assets/portfolio/painting/body-cuts.jpeg"),
+      new PortfolioImage(ImageCategory.Painting, "assets/portfolio/painting/abstract-1.jpeg"),
 
       //Photography
-      new PortfolioImage(ImageCategory.Photography, ""),
-      new PortfolioImage(ImageCategory.Photography, ""),
-      new PortfolioImage(ImageCategory.Photography, ""),
-      new PortfolioImage(ImageCategory.Photography, ""),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/jukebox-1.jpeg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/jukebox-2.jpeg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/cassie-lindsay.jpeg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/winter-outside.jpg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/cassie-blurryface.jpeg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/vermont-car-windshield.jpg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/docks-water.jpg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/marissa-connor-ghosts.jpeg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/vermont-outside.jpg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/vermont-dahole.jpg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/marissa-bridge.jpeg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/marissa-stairs.jpeg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/marissa-pebble.jpeg"),
+      new PortfolioImage(ImageCategory.Photography, "assets/portfolio/photography/marissa-jeep.jpeg"),
 
       //Printmaking
       new PortfolioImage(ImageCategory.Printmaking, "assets/portfolio/printmaking/BeatGeneration-Collage-1.jpeg", [ImageTag.SilkScreen]),
@@ -72,10 +83,14 @@ export class PortfolioImageService implements IPortfolioImageService {
       new PortfolioImage(ImageCategory.Printmaking, "assets/portfolio/printmaking/ClothesLine-WithStream-2.jpeg", [ImageTag.SilkScreen]),
 
       //Sculpture
-      new PortfolioImage(ImageCategory.Sculpture, ""),
-      new PortfolioImage(ImageCategory.Sculpture, ""),
-      new PortfolioImage(ImageCategory.Sculpture, ""),
-      new PortfolioImage(ImageCategory.Sculpture, ""),
+      new PortfolioImage(ImageCategory.Sculpture, "assets/portfolio/sculpture/little-man.jpeg"),
+      new PortfolioImage(ImageCategory.Sculpture, "assets/portfolio/sculpture/bookhouse-1.jpeg"),
+      new PortfolioImage(ImageCategory.Sculpture, "assets/portfolio/sculpture/bookhouse-2.jpeg"),
+      new PortfolioImage(ImageCategory.Sculpture, "assets/portfolio/sculpture/bookhouse-3.jpeg"),
+      new PortfolioImage(ImageCategory.Sculpture, "assets/portfolio/sculpture/bookhouse-4.jpeg"),
+      new PortfolioImage(ImageCategory.Sculpture, "assets/portfolio/sculpture/cassie-stomach-1.jpeg"),
+      new PortfolioImage(ImageCategory.Sculpture, "assets/portfolio/sculpture/cassie-stomach-2.jpeg"),
+      new PortfolioImage(ImageCategory.Sculpture, "assets/portfolio/sculpture/cassie-chest-ribs.jpeg"),
     ];
   }
 }

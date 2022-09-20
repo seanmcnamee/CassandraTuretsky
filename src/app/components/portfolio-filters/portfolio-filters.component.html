@@ -1,5 +1,5 @@
-<div class="row mx-0 g-4">
-    <div class="col-auto pe-3" *ngIf="(tags?.size ?? 0) > 0">
+<div class="row mx-0 g-4" *ngIf="hasDefinedTags">
+    <div class="col-auto pe-3">
         <div class="dropdown">
             <button class="btn btn-light dropdown-toggle py-0" type="button" #tagFiltersDropdownBtn id="tagFiltersDropdownBtn"
                 data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">

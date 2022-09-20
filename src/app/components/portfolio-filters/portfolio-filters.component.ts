@@ -19,6 +19,7 @@ export class PortfolioFiltersComponent implements OnInit {
   ImageTag: typeof ImageTag = ImageTag;
   tags?: Map<DisplayImageTag, boolean>;
   enabledTags?: DisplayImageTag[];
+  hasDefinedTags: boolean = false;
 
   constructor(private portfolioImageService: IPortfolioImageService) { }
 
@@ -26,6 +27,7 @@ export class PortfolioFiltersComponent implements OnInit {
     this.tags = new Map(
       this.portfolioImageService.getTagsFrom(this.images)
         .map(tag => [new DisplayImageTag(tag), true]));
+    this.hasDefinedTags = this.tags.size > 1;
     this.updateResultsFromFilters();
 
     this.filterHintEventSubscription = this.filterHintEvent?.subscribe(
